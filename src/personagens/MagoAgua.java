@@ -20,7 +20,7 @@ public class MagoAgua extends Personagem {
             alvo.setStatus("Molhado");
         }
     }
-
+///////
     public void ondaCurativa(Personagem aliado) {
         if (this.usarMana(20)) {
             System.out.println("\n✨ " + this.nome + " conjura ÁGUAS CURATIVAS em " + aliado.nome + "!");

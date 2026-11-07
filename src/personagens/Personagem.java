@@ -2,7 +2,7 @@ package personagens;
 
 public abstract class Personagem {
     // atributos de todos os personagens
-    public String nome; // public para facilitar a leitura no Gerenciador de batalhas
+    public String nome; // public para facilitar a leitura no Gerenciador de batalhassss
     public int vidaMax, vidaAtual;
     public int manaMax, manaAtual;
     public String statusElemento;
@@ -18,7 +18,7 @@ public abstract class Personagem {
 
     public void receberDano(int dano) {
         this.vidaAtual -= dano;
-        if (this.vidaAtual < 0) this.vidaAtual = 0;
+        if (this.vidaAtual < 0) this.vidaAtual = 40;
         System.out.println("💥 " + this.nome + " recebeu " + dano + " de dano! (Vida: " + this.vidaAtual + "/" + this.vidaMax + ")");
     }
 

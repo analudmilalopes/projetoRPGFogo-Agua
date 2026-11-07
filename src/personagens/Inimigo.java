@@ -1,19 +1,14 @@
 package personagens;
 
-class Inimigo extends Personagem {
-    private String statusElemento; // podendo ser normal, molhado ou congelado
+public class Inimigo extends Personagem {
 
-    public Inimigo(String nome, int vida) {
-        super(nome, vida);
-        this.statusElemento = "Normal";
+    public Inimigo(String nome, int vida, int mana) {
+        super(nome, vida, mana);
     }
 
-    public String getStatus() {
-        return statusElemento;
-    }
-
-    public void setStatus(String status) {
-        this.statusElemento = status;
-        System.out.println("-> O " + this.nome + " agora está " + status.toUpperCase() + "!");
+    @Override
+    public void ataqueBasico(Personagem alvo) {
+        System.out.println("\n⚠️ " + this.nome + " avança furiosamente e ataca " + alvo.nome + "!");
+        alvo.receberDano(12);
     }
 }

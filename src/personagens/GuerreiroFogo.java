@@ -1,20 +1,36 @@
 package personagens;
 
-class GuerreiroFogo extends Personagem {
+public class GuerreiroFogo extends Personagem {
+
  public GuerreiroFogo(String nome) {
-  super(nome, 100);
+  super(nome, 100, 150);
  }
 
  @Override
- public void atacar(Inimigo alvo){
-  System.out.println("\n" + this.nome + " desfere um Golpe Flamejante em " + alvo.nome + "!");
+ public void ataqueBasico(Personagem alvo) {
+  System.out.println("\n" + this.nome + " dá um soco flamejante em " + alvo.nome + "!");
+  alvo.receberDano(8);
+ }
 
-  if (alvo.getStatus().equals("Molhado")) {
-   System.out.println("COMBO! EXPLOSÃO DE VAPOOOR!");
-   alvo.receberDano(30);
-   alvo.setStatus("Normal");
+ // habilidades específicas do fogo
+ public void meteoro(Personagem alvo) {
+  int custo = 40;
+  if (this.usarMana(custo)) {
+   System.out.println("\n🔥 " + this.nome + " conjura um METEORO FLAMEJANTE!");
+   if (alvo.getStatus().equals("Molhado")) {
+    System.out.println("💥 COMBO! EXPLOSÃO DE VAPOR! DANO CRÍTICO ABSURDO!");
+    alvo.receberDano(70);
+    alvo.setStatus("Normal");
    } else {
-        alvo.receberDano(15);
+    alvo.receberDano(35);
    }
   }
+ }
+
+ public void transferirMana(Personagem aliado) {
+  System.out.println("\n🔥 " + this.nome + " irradia calor e energia para " + aliado.nome + "!");
+  aliado.manaAtual += 25;
+  if (aliado.manaAtual > aliado.manaMax) aliado.manaAtual = aliado.manaMax;
+  System.out.println("🔋 " + aliado.nome + " recuperou 25 de Mana! (Mana: " + aliado.manaAtual + "/" + aliado.manaMax + ")");
+ }
 }

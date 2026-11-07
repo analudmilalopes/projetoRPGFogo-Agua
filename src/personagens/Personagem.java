@@ -1,5 +1,6 @@
 package personagens;
 
+// criando os atributos dos personagens
 abstract class Personagem {
     protected String nome;
     protected int vidaMax;

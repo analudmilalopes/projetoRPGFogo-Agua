@@ -18,6 +18,8 @@ abstract class Personagem {
         System.out.println(this.nome + " recebeu " + dano + " de dano! (Vida: " + this.vidaAtual + "/" + this.vidaMax + ")");
     }
 
+    public abstract void atacar(Inimigo alvo);
+    
     public boolean estaVivo() {
         return this.vidaAtual > 0;
     }
